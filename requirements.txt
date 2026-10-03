@@ -19,3 +19,8 @@ matplotlib
 mediapipe
 webrtcvad-wheels
 av==17.1.0
+
+# API layer for the React frontend (api/)
+fastapi
+uvicorn[standard]
+python-multipart

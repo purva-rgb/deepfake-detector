@@ -1,0 +1,684 @@
+{
+  "status": "ok",
+  "analysis_id": "87fb00ea20fb",
+  "video": {
+    "duration_s": 15.32,
+    "analysed_s": 14.0,
+    "has_audio": true,
+    "truncated": false,
+    "windows": 6,
+    "window_s": 4.0,
+    "hop_s": 2.0
+  },
+  "insufficient_evidence": false,
+  "media_risk": {
+    "score": 0.34018728676870574,
+    "band": "LOW",
+    "reason": null,
+    "windows_flagged": 0,
+    "windows_scored": 6
+  },
+  "scam_risk": {
+    "score": 0.0,
+    "band": "LOW",
+    "reason": null
+  },
+  "visual": {
+    "available": true,
+    "score": 0.0874851904809475,
+    "reliability": 0.9678248418671794,
+    "reason": null,
+    "low_confidence": false
+  },
+  "audio": {
+    "available": true,
+    "score": 0.6159512653477067,
+    "reliability": 1.0,
+    "reason": null,
+    "low_confidence": false
+  },
+  "semantic": {
+    "available": true,
+    "score": 0.0,
+    "reliability": 0.8213693994442902,
+    "reason": null,
+    "categories": [
+      {
+        "id": "financial_promise",
+        "label": "Financial promise",
+        "found": false,
+        "matches": []
+      },
+      {
+        "id": "urgency",
+        "label": "Urgency / pressure",
+        "found": false,
+        "matches": []
+      },
+      {
+        "id": "authority_impersonation",
+        "label": "Authority impersonation",
+        "found": false,
+        "matches": []
+      },
+      {
+        "id": "payment_credentials",
+        "label": "Payment / credentials (OTP, KYC)",
+        "found": false,
+        "matches": []
+      },
+      {
+        "id": "off_platform_redirect",
+        "label": "Off-platform redirect",
+        "found": false,
+        "matches": []
+      },
+      {
+        "id": "fake_branding",
+        "label": "Fake branding",
+        "found": false,
+        "matches": []
+      }
+    ],
+    "categories_available": true
+  },
+  "acoustic": {
+    "available": true,
+    "windows_available": 6,
+    "windows_total": 6,
+    "aggregation": "mean over available windows",
+    "features": {
+      "pitch_mean": 180.13722016768955,
+      "pitch_std": 27.329507147351976,
+      "rms_mean": 0.04708378055725926,
+      "rms_std": 0.04253960918894097,
+      "zcr_mean": 0.16193809222409442,
+      "spectral_centroid_mean": 1857.3891254520731,
+      "speech_ratio": 0.7545795382765857,
+      "silence_ratio": 0.3188768115942029
+    },
+    "reason": null,
+    "supporting_only": true
+  },
+  "facial_temporal": {
+    "available": true,
+    "windows_available": 6,
+    "windows_total": 6,
+    "aggregation": "mean over available windows",
+    "features": {
+      "mar_mean": 0.16815192720870384,
+      "mar_std": 0.08048227835986314,
+      "mar_range": 0.3305313270222661,
+      "mar_velocity": 0.5940755551081275,
+      "ear_mean": 0.26026143383447375,
+      "ear_std": 0.11319802998795266,
+      "blink_count": 2.5,
+      "yaw_mean": 9.095644408570488,
+      "yaw_std": 5.97080911112575,
+      "pitch_mean": 8.928791562046884,
+      "pitch_std": 5.314024407719123,
+      "roll_mean": 4.6402372125531555,
+      "roll_std": 4.0672439080242695
+    },
+    "reason": null,
+    "supporting_only": true
+  },
+  "av_sync": {
+    "available": true,
+    "score": 0.18496917623783116,
+    "best_lag_ms": 10.0,
+    "reliability": 1.0,
+    "status": "ok",
+    "reason": null,
+    "windows_used": 6,
+    "supporting_only": true
+  },
+  "reliability": {
+    "visual": 0.9678248418671794,
+    "audio": 1.0,
+    "transcript": 0.8213693994442902
+  },
+  "reliability_gate": 0.15,
+  "warnings": [],
+  "technical_notes": [],
+  "evidence": [
+    {
+      "rank": 1,
+      "start": 10.0,
+      "end": 14.0,
+      "modality": "audio",
+      "score": 0.7417302034361958,
+      "reliability": 1.0,
+      "reason": "Voice at 0:10-0:14 has characteristics the audio detector associates with cloned or synthetic speech (score 74/100*, audio reliability 100/100).",
+      "text": null,
+      "thumbnail": "data:image/jpeg;base64,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"
+    },
+    {
+      "rank": 2,
+      "start": 0.0,
+      "end": 4.0,
+      "modality": "audio",
+      "score": 0.7186023558169045,
+      "reliability": 1.0,
+      "reason": "Voice at 0:00-0:04 has characteristics the audio detector associates with cloned or synthetic speech (score 72/100*, audio reliability 100/100).",
+      "text": null,
+      "thumbnail": "data:image/jpeg;base64,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"
+    }
+  ],
+  "timeline": [
+    {
+      "start": 0.0,
+      "end": 4.0,
+      "media": {
+        "score": 0.37975322987486404,
+        "band": "MEDIUM"
+      },
+      "scam": {
+        "score": 0.0,
+        "band": "LOW"
+      }
+    },
+    {
+      "start": 2.0,
+      "end": 6.0,
+      "media": {
+        "score": 0.21429421915618485,
+        "band": "LOW"
+      },
+      "scam": {
+        "score": 0.0,
+        "band": "LOW"
+      }
+    },
+    {
+      "start": 4.0,
+      "end": 8.0,
+      "media": {
+        "score": 0.1336514456435954,
+        "band": "LOW"
+      },
+      "scam": {
+        "score": 0.0,
+        "band": "LOW"
+      }
+    },
+    {
+      "start": 6.0,
+      "end": 10.0,
+      "media": {
+        "score": 0.15797467295468218,
+        "band": "LOW"
+      },
+      "scam": {
+        "score": 0.0,
+        "band": "LOW"
+      }
+    },
+    {
+      "start": 8.0,
+      "end": 12.0,
+      "media": {
+        "score": 0.13787859664664512,
+        "band": "LOW"
+      },
+      "scam": {
+        "score": 0.0,
+        "band": "LOW"
+      }
+    },
+    {
+      "start": 10.0,
+      "end": 14.0,
+      "media": {
+        "score": 0.4265144112750685,
+        "band": "MEDIUM"
+      },
+      "scam": {
+        "score": 0.0,
+        "band": "LOW"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "start": 0.0,
+      "end": 4.0,
+      "media": {
+        "score": 0.37975322987486404,
+        "band": "MEDIUM"
+      },
+      "scam": {
+        "score": 0.0,
+        "band": "LOW"
+      },
+      "visual": {
+        "score": 0.03042003884911537,
+        "reliability": 0.9699883510841789
+      },
+      "audio": {
+        "score": 0.7186023558169045,
+        "reliability": 1.0
+      },
+      "semantic": {
+        "score": 0.0,
+        "reliability": 0.8213693994442902,
+        "categories": []
+      },
+      "faces": {
+        "frames_with_face": 2,
+        "frames": 2
+      },
+      "acoustic": {
+        "available": true,
+        "reason": null,
+        "features": {
+          "pitch_mean": 178.41547122659438,
+          "pitch_std": 20.786500273767977,
+          "rms_mean": 0.06470883295625593,
+          "rms_std": 0.03805461289581729,
+          "zcr_mean": 0.13010173960957178,
+          "spectral_centroid_mean": 1436.361003320613,
+          "speech_ratio": 0.8947368421052632,
+          "silence_ratio": 0.14
+        }
+      },
+      "facial_temporal": {
+        "available": true,
+        "reason": null,
+        "features": {
+          "mar_mean": 0.17876405686082486,
+          "mar_std": 0.0798759059434739,
+          "mar_range": 0.30028558754433715,
+          "mar_velocity": 0.6080694054295434,
+          "ear_mean": 0.23718237271414758,
+          "ear_std": 0.10892141663393193,
+          "blink_count": 3.0,
+          "yaw_mean": 8.737184894353017,
+          "yaw_std": 4.474941672882515,
+          "pitch_mean": 5.4388848754909445,
+          "pitch_std": 2.853244475030722,
+          "roll_mean": 2.2619683896885294,
+          "roll_std": 2.0189085829748423
+        }
+      },
+      "av_sync": {
+        "available": true,
+        "score": 0.059530695132642975,
+        "best_lag_ms": -60.0,
+        "reliability": 1.0,
+        "reason": null
+      }
+    },
+    {
+      "start": 2.0,
+      "end": 6.0,
+      "media": {
+        "score": 0.21429421915618485,
+        "band": "LOW"
+      },
+      "scam": {
+        "score": 0.0,
+        "band": "LOW"
+      },
+      "visual": {
+        "score": 0.03614405542612076,
+        "reliability": 0.9723651890453007
+      },
+      "audio": {
+        "score": 0.3875212367900199,
+        "reliability": 1.0
+      },
+      "semantic": {
+        "score": 0.0,
+        "reliability": 0.8213693994442902,
+        "categories": []
+      },
+      "faces": {
+        "frames_with_face": 2,
+        "frames": 2
+      },
+      "acoustic": {
+        "available": true,
+        "reason": null,
+        "features": {
+          "pitch_mean": 182.0860291319864,
+          "pitch_std": 25.425970550367012,
+          "rms_mean": 0.055971745144708054,
+          "rms_std": 0.04454015752486009,
+          "zcr_mean": 0.15541856895465994,
+          "spectral_centroid_mean": 1779.3458411750155,
+          "speech_ratio": 0.8045112781954887,
+          "silence_ratio": 0.265
+        }
+      },
+      "facial_temporal": {
+        "available": true,
+        "reason": null,
+        "features": {
+          "mar_mean": 0.15525601774951167,
+          "mar_std": 0.07658224393430416,
+          "mar_range": 0.32126372122214353,
+          "mar_velocity": 0.5815184783869222,
+          "ear_mean": 0.21251988748416245,
+          "ear_std": 0.11523195686410007,
+          "blink_count": 3.0,
+          "yaw_mean": 7.686481709315137,
+          "yaw_std": 5.2683104380277825,
+          "pitch_mean": 5.77116918366053,
+          "pitch_std": 3.2552487398983905,
+          "roll_mean": 2.6220749436205733,
+          "roll_std": 1.5943900721311348
+        }
+      },
+      "av_sync": {
+        "available": true,
+        "score": 0.2833627296333063,
+        "best_lag_ms": -60.0,
+        "reliability": 1.0,
+        "reason": null
+      }
+    },
+    {
+      "start": 4.0,
+      "end": 8.0,
+      "media": {
+        "score": 0.1336514456435954,
+        "band": "LOW"
+      },
+      "scam": {
+        "score": 0.0,
+        "band": "LOW"
+      },
+      "visual": {
+        "score": 0.1177828460931778,
+        "reliability": 0.9723295546025982
+      },
+      "audio": {
+        "score": 0.14908095397661997,
+        "reliability": 1.0
+      },
+      "semantic": {
+        "score": 0.0,
+        "reliability": 0.8213693994442902,
+        "categories": []
+      },
+      "faces": {
+        "frames_with_face": 2,
+        "frames": 2
+      },
+      "acoustic": {
+        "available": true,
+        "reason": null,
+        "features": {
+          "pitch_mean": 184.92888769949752,
+          "pitch_std": 27.587105388182817,
+          "rms_mean": 0.04157435467712206,
+          "rms_std": 0.045316567563339294,
+          "zcr_mean": 0.16762437027707808,
+          "spectral_centroid_mean": 1938.0637867152182,
+          "speech_ratio": 0.6691729323308271,
+          "silence_ratio": 0.4
+        }
+      },
+      "facial_temporal": {
+        "available": true,
+        "reason": null,
+        "features": {
+          "mar_mean": 0.1439845442772039,
+          "mar_std": 0.06380740209272684,
+          "mar_range": 0.2344255743090269,
+          "mar_velocity": 0.5125293856737386,
+          "ear_mean": 0.24798202408103012,
+          "ear_std": 0.1349726465724693,
+          "blink_count": 1.0,
+          "yaw_mean": 9.015767079243826,
+          "yaw_std": 5.814683294758925,
+          "pitch_mean": 7.563529829511352,
+          "pitch_std": 3.403708958873366,
+          "roll_mean": 3.425236984918237,
+          "roll_std": 1.606261436828107
+        }
+      },
+      "av_sync": {
+        "available": true,
+        "score": 0.32498397985211375,
+        "best_lag_ms": 20.0,
+        "reliability": 1.0,
+        "reason": null
+      }
+    },
+    {
+      "start": 6.0,
+      "end": 10.0,
+      "media": {
+        "score": 0.15797467295468218,
+        "band": "LOW"
+      },
+      "scam": {
+        "score": 0.0,
+        "band": "LOW"
+      },
+      "visual": {
+        "score": 0.0476645790040493,
+        "reliability": 0.9753112915796948
+      },
+      "audio": {
+        "score": 0.26556135315995133,
+        "reliability": 1.0
+      },
+      "semantic": {
+        "score": 0.0,
+        "reliability": 0.8213693994442902,
+        "categories": []
+      },
+      "faces": {
+        "frames_with_face": 2,
+        "frames": 2
+      },
+      "acoustic": {
+        "available": true,
+        "reason": null,
+        "features": {
+          "pitch_mean": 175.35294830064123,
+          "pitch_std": 25.15314666052947,
+          "rms_mean": 0.03977505699983951,
+          "rms_std": 0.042245546593194,
+          "zcr_mean": 0.1777688129722922,
+          "spectral_centroid_mean": 2016.8727625113245,
+          "speech_ratio": 0.7368421052631579,
+          "silence_ratio": 0.39
+        }
+      },
+      "facial_temporal": {
+        "available": true,
+        "reason": null,
+        "features": {
+          "mar_mean": 0.14180416683033006,
+          "mar_std": 0.060391115426092934,
+          "mar_range": 0.28803810971638766,
+          "mar_velocity": 0.5107009239619226,
+          "ear_mean": 0.3006812466867166,
+          "ear_std": 0.1176790118375296,
+          "blink_count": 2.0,
+          "yaw_mean": 14.272896461091321,
+          "yaw_std": 6.532253888640066,
+          "pitch_mean": 13.833289608681673,
+          "pitch_std": 8.296767887858595,
+          "roll_mean": 1.81527479879346,
+          "roll_std": 3.070486067103809
+        }
+      },
+      "av_sync": {
+        "available": true,
+        "score": 0.2464350799936799,
+        "best_lag_ms": 200.0,
+        "reliability": 1.0,
+        "reason": null
+      }
+    },
+    {
+      "start": 8.0,
+      "end": 12.0,
+      "media": {
+        "score": 0.13787859664664512,
+        "band": "LOW"
+      },
+      "scam": {
+        "score": 0.0,
+        "band": "LOW"
+      },
+      "visual": {
+        "score": 0.012965204194188118,
+        "reliability": 0.9603240156117993
+      },
+      "audio": {
+        "score": 0.25783592729028126,
+        "reliability": 1.0
+      },
+      "semantic": {
+        "score": 0.0,
+        "reliability": 0.8213693994442902,
+        "categories": []
+      },
+      "faces": {
+        "frames_with_face": 2,
+        "frames": 2
+      },
+      "acoustic": {
+        "available": true,
+        "reason": null,
+        "features": {
+          "pitch_mean": 182.72346499891142,
+          "pitch_std": 34.399937815082346,
+          "rms_mean": 0.03933561614185436,
+          "rms_std": 0.042295498628889365,
+          "zcr_mean": 0.192075330604534,
+          "spectral_centroid_mean": 2143.3569331610006,
+          "speech_ratio": 0.706766917293233,
+          "silence_ratio": 0.365
+        }
+      },
+      "facial_temporal": {
+        "available": true,
+        "reason": null,
+        "features": {
+          "mar_mean": 0.17439439793200684,
+          "mar_std": 0.09753488319515993,
+          "mar_range": 0.37244120995726554,
+          "mar_velocity": 0.6349845898386957,
+          "ear_mean": 0.2812200749986223,
+          "ear_std": 0.10950032311991587,
+          "blink_count": 3.0,
+          "yaw_mean": 11.76134153480442,
+          "yaw_std": 7.700207110344557,
+          "pitch_mean": 14.008689713702411,
+          "pitch_std": 8.482642215710271,
+          "roll_mean": 6.715563005145019,
+          "roll_std": 8.93026106057944
+        }
+      },
+      "av_sync": {
+        "available": true,
+        "score": 0.05365752111718789,
+        "best_lag_ms": 200.0,
+        "reliability": 1.0,
+        "reason": null
+      }
+    },
+    {
+      "start": 10.0,
+      "end": 14.0,
+      "media": {
+        "score": 0.4265144112750685,
+        "band": "MEDIUM"
+      },
+      "scam": {
+        "score": 0.0,
+        "band": "LOW"
+      },
+      "visual": {
+        "score": 0.09700814634561539,
+        "reliability": 0.9566306492795049
+      },
+      "audio": {
+        "score": 0.7417302034361958,
+        "reliability": 1.0
+      },
+      "semantic": {
+        "score": 0.0,
+        "reliability": 0.8213693994442902,
+        "categories": []
+      },
+      "faces": {
+        "frames_with_face": 2,
+        "frames": 2
+      },
+      "acoustic": {
+        "available": true,
+        "reason": null,
+        "features": {
+          "pitch_mean": 177.3165196485063,
+          "pitch_std": 30.62438219618224,
+          "rms_mean": 0.04113707742377564,
+          "rms_std": 0.04278527192754579,
+          "zcr_mean": 0.1486397309264305,
+          "spectral_centroid_mean": 1830.334425829267,
+          "speech_ratio": 0.7154471544715447,
+          "silence_ratio": 0.3532608695652174
+        }
+      },
+      "facial_temporal": {
+        "available": true,
+        "reason": null,
+        "features": {
+          "mar_mean": 0.21470837960234554,
+          "mar_std": 0.10470211956742108,
+          "mar_range": 0.4667337593844361,
+          "mar_velocity": 0.7166505473579421,
+          "ear_mean": 0.2819829970421636,
+          "ear_std": 0.09288282489976926,
+          "blink_count": 3.0,
+          "yaw_mean": 3.1001947726152106,
+          "yaw_std": 6.03445826210066,
+          "pitch_mean": 6.957186161234396,
+          "pitch_std": 5.592534168943396,
+          "roll_mean": 11.001305153153112,
+          "roll_std": 7.183156228528284
+        }
+      },
+      "av_sync": {
+        "available": true,
+        "score": 0.14184505169805606,
+        "best_lag_ms": 0.0,
+        "reliability": 1.0,
+        "reason": null
+      }
+    }
+  ],
+  "transcript": "Hi everyone, today I want to show you how I organize my study notes. First I write the main topics, then I add short summaries. Thanks for watching, and please subscribe to the channel.",
+  "transcript_segments": [
+    {
+      "start": 0.0,
+      "end": 4.32,
+      "text": "Hi everyone, today I want to show you how I organize my study notes.",
+      "confidence": 0.8213693994442902,
+      "matches": []
+    },
+    {
+      "start": 5.28,
+      "end": 8.8,
+      "text": "First I write the main topics, then I add short summaries.",
+      "confidence": 0.8213693994442902,
+      "matches": []
+    },
+    {
+      "start": 9.76,
+      "end": 13.76,
+      "text": "Thanks for watching, and please subscribe to the channel.",
+      "confidence": 0.8213693994442902,
+      "matches": []
+    }
+  ],
+  "transcript_available": true,
+  "scam_analysis_available": true
+}

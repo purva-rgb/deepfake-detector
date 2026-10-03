@@ -240,6 +240,7 @@ __pycache__/
 .pytest_cache/
 desktop.ini
 Thumbs.db
+node_modules/
 
 # real-world eval inputs/outputs stay local
 data/real_world_eval/*

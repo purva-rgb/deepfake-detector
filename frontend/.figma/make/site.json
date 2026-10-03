@@ -1,0 +1,10 @@
+{
+  "description": "AI-powered platform analyzes videos to detect deepfakes and scams by assessing facial, audio, sync, and speech indicators for secure verification.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

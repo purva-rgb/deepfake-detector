@@ -1,0 +1,957 @@
+{
+ "path": "data\\real_world_eval\\synthetic_tts_scam.mp4",
+ "sha1": "ce861c3e43dc",
+ "meta": {
+  "duration": 14.6,
+  "fps": 25.0,
+  "width": 224,
+  "height": 224,
+  "n_frames": 365,
+  "has_audio": true,
+  "loudness_db": -20.213933362032837,
+  "vad": "webrtcvad",
+  "face_backend": "mediapipe"
+ },
+ "video": {
+  "D_video": 0.3703256343445171,
+  "S_video": 0.95,
+  "M_video": null,
+  "R_media_video": 0.3703256343445171,
+  "R_video": 0.95,
+  "R_sum": 1.9678248418671793,
+  "synergy": false,
+  "insufficient": false,
+  "band": "HIGH",
+  "R_v": 0.9678248418671794,
+  "R_a": 1.0,
+  "R_t": 0.7615826687425934,
+  "M": null,
+  "D": 0.3703256343445171,
+  "S": 0.95,
+  "R": 0.95,
+  "media_band": "MEDIUM",
+  "scam_band": "HIGH",
+  "sync": {
+   "sync_score": 0.08385785978614137,
+   "best_lag_ms": 100.0,
+   "reliability": 1.0,
+   "status": "ok",
+   "reason": "",
+   "n_valid_windows": 6
+  },
+  "coverage": {
+   "n_windows": 6,
+   "n_windows_with_D": 6,
+   "n_windows_D_ge_0.5": 0,
+   "D_median": 0.3303953161790634,
+   "D_max": 0.39557212799467345,
+   "n_windows_sync_ok": 6,
+   "n_windows_face_temporal_ok": 6,
+   "n_windows_acoustic_ok": 6
+  }
+ },
+ "windows": [
+  {
+   "D": 0.39557212799467345,
+   "R_media": 0.39557212799467345,
+   "R": 0.95,
+   "S": 0.95,
+   "M": null,
+   "R_sum": 1.969988351084179,
+   "used": {
+    "visual": true,
+    "audio": true
+   },
+   "cap_applied": false,
+   "synergy": false,
+   "insufficient": false,
+   "band": "HIGH",
+   "start": 0.0,
+   "end": 4.0,
+   "S_visual": 0.03042003884911537,
+   "S_audio": 0.7497654008399164,
+   "R_v": 0.9699883510841789,
+   "R_a": 1.0,
+   "R_t": 0.7615826687425933,
+   "n_faces": 2,
+   "n_frames": 2,
+   "speech_ratio": 0.7307692170143127,
+   "categories": [
+    "financial_promise",
+    "urgency"
+   ],
+   "face_temporal": {
+    "features": {
+     "mar_mean": 0.17876405686082486,
+     "mar_std": 0.0798759059434739,
+     "mar_range": 0.30028558754433715,
+     "mar_velocity": 0.6080694054295434,
+     "ear_mean": 0.23718237271414758,
+     "ear_std": 0.10892141663393193,
+     "blink_count": 3.0,
+     "yaw_mean": 8.737184894353017,
+     "yaw_std": 4.474941672882515,
+     "pitch_mean": 5.4388848754909445,
+     "pitch_std": 2.853244475030722,
+     "roll_mean": 2.2619683896885294,
+     "roll_std": 2.0189085829748423
+    },
+    "available": true,
+    "reason": "",
+    "n_valid": 50,
+    "n_frames": 50,
+    "valid_frac": 1.0
+   },
+   "acoustic": {
+    "features": {
+     "mfcc_mean_01": -55.88724385720938,
+     "mfcc_mean_02": 9.687332957652217,
+     "mfcc_mean_03": -1.4157989219067701,
+     "mfcc_mean_04": 4.297792769709062,
+     "mfcc_mean_05": -2.7903322249696108,
+     "mfcc_mean_06": 0.9357708365627617,
+     "mfcc_mean_07": -2.074031477109536,
+     "mfcc_mean_08": 0.5222790371204302,
+     "mfcc_mean_09": -1.2292368539116278,
+     "mfcc_mean_10": -0.36269840471852843,
+     "mfcc_mean_11": -2.052189809679148,
+     "mfcc_mean_12": 0.23669902475083932,
+     "mfcc_mean_13": -0.8104849393238288,
+     "mfcc_std_01": 57.055930356160125,
+     "mfcc_std_02": 9.6057028390028,
+     "mfcc_std_03": 5.522423458792027,
+     "mfcc_std_04": 4.176591809432049,
+     "mfcc_std_05": 3.3115192063133687,
+     "mfcc_std_06": 2.4658706576963367,
+     "mfcc_std_07": 2.0885538970057245,
+     "mfcc_std_08": 1.882054772476493,
+     "mfcc_std_09": 1.8086964245553139,
+     "mfcc_std_10": 1.5613315295833945,
+     "mfcc_std_11": 2.0211597926211136,
+     "mfcc_std_12": 1.1689806287894642,
+     "mfcc_std_13": 1.0772140182003724,
+     "rms_mean": 0.050551487886744295,
+     "rms_std": 0.053152887811897684,
+     "zcr_mean": 0.11129860673803527,
+     "spectral_centroid_mean": 1528.4053901589166,
+     "spectral_bandwidth_mean": 1393.4597894513824,
+     "spectral_rolloff_mean": 1510.0198412698412,
+     "pitch_mean": 189.69890051377095,
+     "pitch_std": 27.21490903513069,
+     "speech_ratio": 0.7218045112781954,
+     "silence_ratio": 0.38
+    },
+    "available": true,
+    "reason": ""
+   },
+   "sync": {
+    "sync_score": 0.382684018432363,
+    "best_lag_ms": 0.0,
+    "reliability": 1.0,
+    "status": "ok",
+    "reason": "",
+    "peak_prominence": 0.059577477462115114,
+    "n_valid_frames": 50,
+    "valid_frac": 1.0
+   }
+  },
+  {
+   "D": 0.18605783654824773,
+   "R_media": 0.18605783654824773,
+   "R": 0.95,
+   "S": 0.95,
+   "M": null,
+   "R_sum": 1.9723651890453007,
+   "used": {
+    "visual": true,
+    "audio": true
+   },
+   "cap_applied": false,
+   "synergy": false,
+   "insufficient": false,
+   "band": "HIGH",
+   "start": 2.0,
+   "end": 6.0,
+   "S_visual": 0.03614405542612076,
+   "S_audio": 0.3318287786695605,
+   "R_v": 0.9723651890453007,
+   "R_a": 1.0,
+   "R_t": 0.7615826687425933,
+   "n_faces": 2,
+   "n_frames": 2,
+   "speech_ratio": 0.6015037298202515,
+   "categories": [
+    "financial_promise",
+    "urgency"
+   ],
+   "face_temporal": {
+    "features": {
+     "mar_mean": 0.15525601774951167,
+     "mar_std": 0.07658224393430416,
+     "mar_range": 0.32126372122214353,
+     "mar_velocity": 0.5815184783869222,
+     "ear_mean": 0.21251988748416245,
+     "ear_std": 0.11523195686410007,
+     "blink_count": 3.0,
+     "yaw_mean": 7.686481709315137,
+     "yaw_std": 5.2683104380277825,
+     "pitch_mean": 5.77116918366053,
+     "pitch_std": 3.2552487398983905,
+     "roll_mean": 2.6220749436205733,
+     "roll_std": 1.5943900721311348
+    },
+    "available": true,
+    "reason": "",
+    "n_valid": 50,
+    "n_frames": 50,
+    "valid_frac": 1.0
+   },
+   "acoustic": {
+    "features": {
+     "mfcc_mean_01": -69.82652959797248,
+     "mfcc_mean_02": 8.729816219758273,
+     "mfcc_mean_03": -1.1906919925816004,
+     "mfcc_mean_04": 2.9478757955959334,
+     "mfcc_mean_05": -2.2630228214074553,
+     "mfcc_mean_06": 1.5389122810943818,
+     "mfcc_mean_07": -1.987753703877107,
+     "mfcc_mean_08": 0.3908294894514563,
+     "mfcc_mean_09": -0.901171823650065,
+     "mfcc_mean_10": -0.2700662155060909,
+     "mfcc_mean_11": -2.032163337802466,
+     "mfcc_mean_12": 0.4327809924007585,
+     "mfcc_mean_13": -0.6911666018517786,
+     "mfcc_std_01": 60.55170550725157,
+     "mfcc_std_02": 9.986800484515566,
+     "mfcc_std_03": 4.924745753400751,
+     "mfcc_std_04": 3.4351556284826796,
+     "mfcc_std_05": 3.118819994343422,
+     "mfcc_std_06": 2.367017169455119,
+     "mfcc_std_07": 2.243498572469727,
+     "mfcc_std_08": 1.873930758795811,
+     "mfcc_std_09": 1.585499761082914,
+     "mfcc_std_10": 1.1597818858804734,
+     "mfcc_std_11": 2.007968326217404,
+     "mfcc_std_12": 1.1406719182561234,
+     "mfcc_std_13": 1.0400803732677157,
+     "rms_mean": 0.03615539278937552,
+     "rms_std": 0.04395358202150038,
+     "zcr_mean": 0.10252676322418136,
+     "spectral_centroid_mean": 1562.276741391711,
+     "spectral_bandwidth_mean": 1401.768144586596,
+     "spectral_rolloff_mean": 1623.6363636363637,
+     "pitch_mean": 176.222955700131,
+     "pitch_std": 23.02558381114617,
+     "speech_ratio": 0.6015037593984962,
+     "silence_ratio": 0.49
+    },
+    "available": true,
+    "reason": ""
+   },
+   "sync": {
+    "sync_score": 0.05046496795589934,
+    "best_lag_ms": -40.0,
+    "reliability": 1.0,
+    "status": "ok",
+    "reason": "",
+    "peak_prominence": 0.05047964734827703,
+    "n_valid_frames": 50,
+    "valid_frac": 1.0
+   }
+  },
+  {
+   "D": 0.33587998705881966,
+   "R_media": 0.33587998705881966,
+   "R": 0.95,
+   "S": 0.95,
+   "M": null,
+   "R_sum": 1.9723295546025983,
+   "used": {
+    "visual": true,
+    "audio": true
+   },
+   "cap_applied": false,
+   "synergy": false,
+   "insufficient": false,
+   "band": "HIGH",
+   "start": 4.0,
+   "end": 8.0,
+   "S_visual": 0.1177828460931778,
+   "S_audio": 0.5479422829940424,
+   "R_v": 0.9723295546025982,
+   "R_a": 1.0,
+   "R_t": 0.7615826687425933,
+   "n_faces": 2,
+   "n_frames": 2,
+   "speech_ratio": 0.8120300769805908,
+   "categories": [
+    "payment_credentials",
+    "urgency"
+   ],
+   "face_temporal": {
+    "features": {
+     "mar_mean": 0.1439845442772039,
+     "mar_std": 0.06380740209272684,
+     "mar_range": 0.2344255743090269,
+     "mar_velocity": 0.5125293856737386,
+     "ear_mean": 0.24798202408103012,
+     "ear_std": 0.1349726465724693,
+     "blink_count": 1.0,
+     "yaw_mean": 9.015767079243826,
+     "yaw_std": 5.814683294758925,
+     "pitch_mean": 7.563529829511352,
+     "pitch_std": 3.403708958873366,
+     "roll_mean": 3.425236984918237,
+     "roll_std": 1.606261436828107
+    },
+    "available": true,
+    "reason": "",
+    "n_valid": 50,
+    "n_frames": 50,
+    "valid_frac": 1.0
+   },
+   "acoustic": {
+    "features": {
+     "mfcc_mean_01": -44.824508882013774,
+     "mfcc_mean_02": 10.613749288567101,
+     "mfcc_mean_03": -0.6882769292499551,
+     "mfcc_mean_04": 4.991784406319949,
+     "mfcc_mean_05": -3.0625018932435784,
+     "mfcc_mean_06": 1.0262512965136181,
+     "mfcc_mean_07": -2.7088122877076493,
+     "mfcc_mean_08": -0.005734193933734944,
+     "mfcc_mean_09": -1.3306978958383349,
+     "mfcc_mean_10": -0.12979379599521776,
+     "mfcc_mean_11": -1.7591335400351393,
+     "mfcc_mean_12": 0.21060685194536394,
+     "mfcc_mean_13": -0.9636683134613686,
+     "mfcc_std_01": 50.7480865138261,
+     "mfcc_std_02": 11.293595553066636,
+     "mfcc_std_03": 5.37352686495858,
+     "mfcc_std_04": 4.711709659171011,
+     "mfcc_std_05": 3.4340338637402863,
+     "mfcc_std_06": 2.6751666107199394,
+     "mfcc_std_07": 2.2725952927713866,
+     "mfcc_std_08": 2.0921639359109925,
+     "mfcc_std_09": 2.23208256660215,
+     "mfcc_std_10": 1.5977475100309941,
+     "mfcc_std_11": 1.9264930433962504,
+     "mfcc_std_12": 1.507754126101622,
+     "mfcc_std_13": 1.0263980348497754,
+     "rms_mean": 0.05648236811305058,
+     "rms_std": 0.04643032653495523,
+     "zcr_mean": 0.1192291797858942,
+     "spectral_centroid_mean": 1472.6749292553948,
+     "spectral_bandwidth_mean": 1276.1729113241217,
+     "spectral_rolloff_mean": 1466.504491017964,
+     "pitch_mean": 185.82882683730296,
+     "pitch_std": 29.088074261641435,
+     "speech_ratio": 0.8120300751879699,
+     "silence_ratio": 0.26
+    },
+    "available": true,
+    "reason": ""
+   },
+   "sync": {
+    "sync_score": -0.013896565420311468,
+    "best_lag_ms": 0.0,
+    "reliability": 1.0,
+    "status": "ok",
+    "reason": "",
+    "peak_prominence": 0.10594335324268114,
+    "n_valid_frames": 50,
+    "valid_frac": 1.0
+   }
+  },
+  {
+   "D": 0.3795247879800581,
+   "R_media": 0.3795247879800581,
+   "R": 0.95,
+   "S": 0.95,
+   "M": null,
+   "R_sum": 1.9753112915796947,
+   "used": {
+    "visual": true,
+    "audio": true
+   },
+   "cap_applied": false,
+   "synergy": false,
+   "insufficient": false,
+   "band": "HIGH",
+   "start": 6.0,
+   "end": 10.0,
+   "S_visual": 0.0476645790040493,
+   "S_audio": 0.7031917970203566,
+   "R_v": 0.9753112915796948,
+   "R_a": 1.0,
+   "R_t": 0.7615826687425933,
+   "n_faces": 2,
+   "n_frames": 2,
+   "speech_ratio": 0.7819548845291138,
+   "categories": [
+    "payment_credentials",
+    "urgency"
+   ],
+   "face_temporal": {
+    "features": {
+     "mar_mean": 0.14180416683033006,
+     "mar_std": 0.060391115426092934,
+     "mar_range": 0.28803810971638766,
+     "mar_velocity": 0.5107009239619226,
+     "ear_mean": 0.3006812466867166,
+     "ear_std": 0.1176790118375296,
+     "blink_count": 2.0,
+     "yaw_mean": 14.272896461091321,
+     "yaw_std": 6.532253888640066,
+     "pitch_mean": 13.833289608681673,
+     "pitch_std": 8.296767887858595,
+     "roll_mean": 1.81527479879346,
+     "roll_std": 3.070486067103809
+    },
+    "available": true,
+    "reason": "",
+    "n_valid": 50,
+    "n_frames": 50,
+    "valid_frac": 1.0
+   },
+   "acoustic": {
+    "features": {
+     "mfcc_mean_01": -49.501962693797786,
+     "mfcc_mean_02": 8.821514112639985,
+     "mfcc_mean_03": 0.13939625992938567,
+     "mfcc_mean_04": 6.0951681218747655,
+     "mfcc_mean_05": -3.7607143281500726,
+     "mfcc_mean_06": 0.14731921205870194,
+     "mfcc_mean_07": -2.290153271972509,
+     "mfcc_mean_08": 0.4715491811309959,
+     "mfcc_mean_09": -2.0067809957341947,
+     "mfcc_mean_10": 0.02870000521089643,
+     "mfcc_mean_11": -1.2905812864885156,
+     "mfcc_mean_12": 0.0822070355768586,
+     "mfcc_mean_13": -0.8973562887059773,
+     "mfcc_std_01": 53.27916965552861,
+     "mfcc_std_02": 10.727952015995134,
+     "mfcc_std_03": 5.026138449131197,
+     "mfcc_std_04": 5.1041947437779775,
+     "mfcc_std_05": 3.6114346430040833,
+     "mfcc_std_06": 2.1895242974788034,
+     "mfcc_std_07": 2.2070028020543266,
+     "mfcc_std_08": 2.2536832981064325,
+     "mfcc_std_09": 2.245419606601765,
+     "mfcc_std_10": 1.5345530846643138,
+     "mfcc_std_11": 1.6048448220286993,
+     "mfcc_std_12": 1.5119930335195337,
+     "mfcc_std_13": 1.0900164498120695,
+     "rms_mean": 0.052687818751667226,
+     "rms_std": 0.04823460971725831,
+     "zcr_mean": 0.12301735673803527,
+     "spectral_centroid_mean": 1568.1373437007478,
+     "spectral_bandwidth_mean": 1336.73955928301,
+     "spectral_rolloff_mean": 1509.3064263322883,
+     "pitch_mean": 186.42127775079618,
+     "pitch_std": 29.817191355959906,
+     "speech_ratio": 0.7819548872180451,
+     "silence_ratio": 0.305
+    },
+    "available": true,
+    "reason": ""
+   },
+   "sync": {
+    "sync_score": -0.14813297948928644,
+    "best_lag_ms": 200.0,
+    "reliability": 1.0,
+    "status": "ok",
+    "reason": "",
+    "peak_prominence": 0.11917625586331715,
+    "n_valid_frames": 50,
+    "valid_frac": 1.0
+   }
+  },
+  {
+   "D": 0.30885239237970635,
+   "R_media": 0.30885239237970635,
+   "R": 0.95,
+   "S": 0.95,
+   "M": null,
+   "R_sum": 1.9603240156117994,
+   "used": {
+    "visual": true,
+    "audio": true
+   },
+   "cap_applied": false,
+   "synergy": false,
+   "insufficient": false,
+   "band": "HIGH",
+   "start": 8.0,
+   "end": 12.0,
+   "S_visual": 0.012965204194188118,
+   "S_audio": 0.5929999651061074,
+   "R_v": 0.9603240156117993,
+   "R_a": 1.0,
+   "R_t": 0.7615826687425933,
+   "n_faces": 2,
+   "n_frames": 2,
+   "speech_ratio": 0.7938931584358215,
+   "categories": [
+    "off_platform_redirect",
+    "payment_credentials"
+   ],
+   "face_temporal": {
+    "features": {
+     "mar_mean": 0.17439439793200684,
+     "mar_std": 0.09753488319515993,
+     "mar_range": 0.37244120995726554,
+     "mar_velocity": 0.6349845898386957,
+     "ear_mean": 0.2812200749986223,
+     "ear_std": 0.10950032311991587,
+     "blink_count": 3.0,
+     "yaw_mean": 11.76134153480442,
+     "yaw_std": 7.700207110344557,
+     "pitch_mean": 14.008689713702411,
+     "pitch_std": 8.482642215710271,
+     "roll_mean": 6.715563005145019,
+     "roll_std": 8.93026106057944
+    },
+    "available": true,
+    "reason": "",
+    "n_valid": 50,
+    "n_frames": 50,
+    "valid_frac": 1.0
+   },
+   "acoustic": {
+    "features": {
+     "mfcc_mean_01": -45.38263528623586,
+     "mfcc_mean_02": 11.957795907166977,
+     "mfcc_mean_03": -0.22809488450807025,
+     "mfcc_mean_04": 4.683324889905586,
+     "mfcc_mean_05": -4.107125691385744,
+     "mfcc_mean_06": 0.7934572830008146,
+     "mfcc_mean_07": -1.8517056904541893,
+     "mfcc_mean_08": 0.5197990039790034,
+     "mfcc_mean_09": -1.848890904072292,
+     "mfcc_mean_10": -0.38498578952091916,
+     "mfcc_mean_11": -1.6113828669998786,
+     "mfcc_mean_12": 0.11426278375224733,
+     "mfcc_mean_13": -0.8553187404963807,
+     "mfcc_std_01": 50.293930712232054,
+     "mfcc_std_02": 10.893475024428854,
+     "mfcc_std_03": 5.204256340228638,
+     "mfcc_std_04": 4.940376731334124,
+     "mfcc_std_05": 4.027146199567109,
+     "mfcc_std_06": 2.4304703977906184,
+     "mfcc_std_07": 2.3634371538031758,
+     "mfcc_std_08": 2.0171482329288906,
+     "mfcc_std_09": 1.9787937548337609,
+     "mfcc_std_10": 1.4425255190698176,
+     "mfcc_std_11": 1.4978571547855497,
+     "mfcc_std_12": 1.396545143552634,
+     "mfcc_std_13": 1.1529067736927125,
+     "rms_mean": 0.05492365299737478,
+     "rms_std": 0.04783343504311763,
+     "zcr_mean": 0.1148653967254408,
+     "spectral_centroid_mean": 1373.5001021042012,
+     "spectral_bandwidth_mean": 1235.8436415407382,
+     "spectral_rolloff_mean": 1294.845166163142,
+     "pitch_mean": 181.18393803322132,
+     "pitch_std": 26.43424395465407,
+     "speech_ratio": 0.7969924812030075,
+     "silence_ratio": 0.27
+    },
+    "available": true,
+    "reason": ""
+   },
+   "sync": {
+    "sync_score": 0.1670515802410554,
+    "best_lag_ms": 200.0,
+    "reliability": 1.0,
+    "status": "ok",
+    "reason": "",
+    "peak_prominence": 0.23904949175135043,
+    "n_valid_frames": 50,
+    "valid_frac": 1.0
+   }
+  },
+  {
+   "D": 0.3249106452993072,
+   "R_media": 0.3249106452993072,
+   "R": 0.95,
+   "S": 0.95,
+   "M": null,
+   "R_sum": 1.956630649279505,
+   "used": {
+    "visual": true,
+    "audio": true
+   },
+   "cap_applied": false,
+   "synergy": false,
+   "insufficient": false,
+   "band": "HIGH",
+   "start": 10.0,
+   "end": 14.0,
+   "S_visual": 0.09700814634561539,
+   "S_audio": 0.542929160845799,
+   "R_v": 0.9566306492795049,
+   "R_a": 1.0,
+   "R_t": 0.7615826687425933,
+   "n_faces": 2,
+   "n_frames": 2,
+   "speech_ratio": 0.921875,
+   "categories": [
+    "off_platform_redirect",
+    "payment_credentials"
+   ],
+   "face_temporal": {
+    "features": {
+     "mar_mean": 0.21446685964457468,
+     "mar_std": 0.10451551972465373,
+     "mar_range": 0.4667337593844361,
+     "mar_velocity": 0.7135541077268229,
+     "ear_mean": 0.2822140655948652,
+     "ear_std": 0.09308278721606376,
+     "blink_count": 3.0,
+     "yaw_mean": 3.108510554066444,
+     "yaw_std": 6.047323162232308,
+     "pitch_mean": 6.9508962672457,
+     "pitch_std": 5.592565232768795,
+     "roll_mean": 11.004716522455634,
+     "roll_std": 7.17700401017294
+    },
+    "available": true,
+    "reason": "",
+    "n_valid": 50,
+    "n_frames": 50,
+    "valid_frac": 1.0
+   },
+   "acoustic": {
+    "features": {
+     "mfcc_mean_01": -60.427259044402454,
+     "mfcc_mean_02": 11.853160606708945,
+     "mfcc_mean_03": -0.9950254136983397,
+     "mfcc_mean_04": 3.055315132930739,
+     "mfcc_mean_05": -3.348697303703262,
+     "mfcc_mean_06": 1.0741035461832085,
+     "mfcc_mean_07": -1.4800702556000422,
+     "mfcc_mean_08": 0.1921922830605297,
+     "mfcc_mean_09": -1.1674613664610596,
+     "mfcc_mean_10": -0.5273881269239407,
+     "mfcc_mean_11": -1.4068956538936441,
+     "mfcc_mean_12": 0.06894744748801886,
+     "mfcc_mean_13": -0.6873483865886281,
+     "mfcc_std_01": 57.243889136032,
+     "mfcc_std_02": 11.291134006883775,
+     "mfcc_std_03": 4.942424375721233,
+     "mfcc_std_04": 4.360107594589497,
+     "mfcc_std_05": 4.118262755624101,
+     "mfcc_std_06": 2.382996557630745,
+     "mfcc_std_07": 2.32243593182112,
+     "mfcc_std_08": 1.5350852150859646,
+     "mfcc_std_09": 1.7322867063756247,
+     "mfcc_std_10": 1.4348887678768698,
+     "mfcc_std_11": 1.5363152926484254,
+     "mfcc_std_12": 1.238063503771212,
+     "mfcc_std_13": 1.1025679978223015,
+     "rms_mean": 0.048119075264356756,
+     "rms_std": 0.04873345159662935,
+     "zcr_mean": 0.08946595574817519,
+     "spectral_centroid_mean": 1240.7525754811415,
+     "spectral_bandwidth_mean": 1164.2069082891194,
+     "spectral_rolloff_mean": 1207.204433497537,
+     "pitch_mean": 188.46126172622536,
+     "pitch_std": 28.25283061748583,
+     "speech_ratio": 0.6956521739130435,
+     "silence_ratio": 0.391304347826087
+    },
+    "available": true,
+    "reason": ""
+   },
+   "sync": {
+    "sync_score": 0.06497613699712845,
+    "best_lag_ms": 200.0,
+    "reliability": 1.0,
+    "status": "ok",
+    "reason": "",
+    "peak_prominence": 0.10471595405254933,
+    "n_valid_frames": 50,
+    "valid_frac": 1.0
+   }
+  }
+ ],
+ "evidence": [
+  {
+   "t_start": 0.0,
+   "t_end": 14.0,
+   "modality": "audio",
+   "detector": "wav2vec2+LR",
+   "score": 0.7497654008399164,
+   "reliability": 1.0,
+   "text": "",
+   "thumbnail_path": "C:\\Users\\Purva\\OneDrive\\Desktop\\deepfake-detector\\outputs\\thumbs\\ce861c3e43dc_0.jpg",
+   "reason": "Voice at 0:00-0:14 has characteristics the audio detector associates with cloned or synthetic speech (score 75/100*, audio reliability 100/100).",
+   "rank_value": 0.7497654008399164
+  },
+  {
+   "t_start": 0.0,
+   "t_end": 2.96,
+   "modality": "text",
+   "detector": "rule:fin_guaranteed",
+   "score": 0.85,
+   "reliability": 0.7615826687425933,
+   "text": "Guaranteed returns on every deposit.",
+   "thumbnail_path": "C:\\Users\\Purva\\OneDrive\\Desktop\\deepfake-detector\\outputs\\thumbs\\ce861c3e43dc_1.jpg",
+   "reason": "Scam-style language at 0:00-0:02: \"Guaranteed returns\" (Financial promise); transcript confidence 76/100.",
+   "rank_value": 0.6473452684312043
+  },
+  {
+   "t_start": 6.24,
+   "t_end": 10.08,
+   "modality": "text",
+   "detector": "rule:pay_credentials",
+   "score": 0.85,
+   "reliability": 0.7615826687425933,
+   "text": "Share your OTP and complete your KYC today.",
+   "thumbnail_path": "C:\\Users\\Purva\\OneDrive\\Desktop\\deepfake-detector\\outputs\\thumbs\\ce861c3e43dc_2.jpg",
+   "reason": "Scam-style language at 0:06-0:10: \"Share your OTP\" (Payment / credentials (OTP, KYC)); transcript confidence 76/100.",
+   "rank_value": 0.6473452684312043
+  },
+  {
+   "t_start": 6.24,
+   "t_end": 10.08,
+   "modality": "text",
+   "detector": "rule:pay_kyc",
+   "score": 0.8,
+   "reliability": 0.7615826687425933,
+   "text": "Share your OTP and complete your KYC today.",
+   "thumbnail_path": "C:\\Users\\Purva\\OneDrive\\Desktop\\deepfake-detector\\outputs\\thumbs\\ce861c3e43dc_3.jpg",
+   "reason": "Scam-style language at 0:06-0:10: \"complete your KYC\" (Payment / credentials (OTP, KYC)); transcript confidence 76/100.",
+   "rank_value": 0.6092661349940747
+  },
+  {
+   "t_start": 10.08,
+   "t_end": 12.72,
+   "modality": "text",
+   "detector": "rule:redir_contact",
+   "score": 0.7,
+   "reliability": 0.7615826687425933,
+   "text": "WhatsApp me to claim your reward.",
+   "thumbnail_path": "C:\\Users\\Purva\\OneDrive\\Desktop\\deepfake-detector\\outputs\\thumbs\\ce861c3e43dc_4.jpg",
+   "reason": "Scam-style language at 0:10-0:12: \"WhatsApp me to claim\" (Off-platform redirect); transcript confidence 76/100.",
+   "rank_value": 0.5331078681198153
+  }
+ ],
+ "checklist": [
+  {
+   "category": "financial_promise",
+   "label": "Financial promise",
+   "found": true,
+   "matches": [
+    {
+     "text": "Guaranteed returns",
+     "segment_text": "Guaranteed returns on every deposit.",
+     "t": 0.0,
+     "rule": "fin_guaranteed",
+     "strength": 0.85,
+     "reason": ""
+    }
+   ]
+  },
+  {
+   "category": "urgency",
+   "label": "Urgency / pressure",
+   "found": true,
+   "matches": [
+    {
+     "text": "Act now",
+     "segment_text": "Act now, this is a limited time offer.",
+     "t": 2.96,
+     "rule": "urg_action",
+     "strength": 0.55,
+     "reason": ""
+    },
+    {
+     "text": "limited time",
+     "segment_text": "Act now, this is a limited time offer.",
+     "t": 2.96,
+     "rule": "urg_action",
+     "strength": 0.55,
+     "reason": ""
+    }
+   ]
+  },
+  {
+   "category": "authority_impersonation",
+   "label": "Authority impersonation",
+   "found": false,
+   "matches": []
+  },
+  {
+   "category": "payment_credentials",
+   "label": "Payment / credentials (OTP, KYC)",
+   "found": true,
+   "matches": [
+    {
+     "text": "Share your OTP",
+     "segment_text": "Share your OTP and complete your KYC today.",
+     "t": 6.24,
+     "rule": "pay_credentials",
+     "strength": 0.85,
+     "reason": ""
+    },
+    {
+     "text": "complete your KYC",
+     "segment_text": "Share your OTP and complete your KYC today.",
+     "t": 6.24,
+     "rule": "pay_kyc",
+     "strength": 0.8,
+     "reason": ""
+    }
+   ]
+  },
+  {
+   "category": "off_platform_redirect",
+   "label": "Off-platform redirect",
+   "found": true,
+   "matches": [
+    {
+     "text": "WhatsApp me to claim",
+     "segment_text": "WhatsApp me to claim your reward.",
+     "t": 10.08,
+     "rule": "redir_contact",
+     "strength": 0.7,
+     "reason": ""
+    }
+   ]
+  },
+  {
+   "category": "fake_branding",
+   "label": "Fake branding",
+   "found": false,
+   "matches": []
+  }
+ ],
+ "suppressed_matches": [],
+ "transcript": [
+  {
+   "start": 0.0,
+   "end": 2.96,
+   "text": "Guaranteed returns on every deposit.",
+   "conf": 0.7615826687425933,
+   "hits": [
+    {
+     "start": 0,
+     "end": 18,
+     "category": "financial_promise",
+     "suppressed": false,
+     "reason": "",
+     "text": "Guaranteed returns"
+    }
+   ]
+  },
+  {
+   "start": 2.96,
+   "end": 6.24,
+   "text": "Act now, this is a limited time offer.",
+   "conf": 0.7615826687425933,
+   "hits": [
+    {
+     "start": 0,
+     "end": 7,
+     "category": "urgency",
+     "suppressed": false,
+     "reason": "",
+     "text": "Act now"
+    },
+    {
+     "start": 19,
+     "end": 31,
+     "category": "urgency",
+     "suppressed": false,
+     "reason": "",
+     "text": "limited time"
+    }
+   ]
+  },
+  {
+   "start": 6.24,
+   "end": 10.08,
+   "text": "Share your OTP and complete your KYC today.",
+   "conf": 0.7615826687425933,
+   "hits": [
+    {
+     "start": 0,
+     "end": 14,
+     "category": "payment_credentials",
+     "suppressed": false,
+     "reason": "",
+     "text": "Share your OTP"
+    },
+    {
+     "start": 19,
+     "end": 36,
+     "category": "payment_credentials",
+     "suppressed": false,
+     "reason": "",
+     "text": "complete your KYC"
+    }
+   ]
+  },
+  {
+   "start": 10.08,
+   "end": 12.72,
+   "text": "WhatsApp me to claim your reward.",
+   "conf": 0.7615826687425933,
+   "hits": [
+    {
+     "start": 0,
+     "end": 20,
+     "category": "off_platform_redirect",
+     "suppressed": false,
+     "reason": "",
+     "text": "WhatsApp me to claim"
+    }
+   ]
+  }
+ ],
+ "transcript_ok": true,
+ "warnings": [
+  "AV mismatch (M) is not fused: the lightweight sync score below is supporting evidence only (dubbed / voice-over content can legitimately be out of sync).",
+  "English only: other languages are not analysed reliably."
+ ],
+ "timings": {
+  "model_load (once per process)": 15.362897872924805,
+  "faces": 0.08335709571838379,
+  "xception": 0.995002269744873,
+  "audio": 2.6297905445098877,
+  "extract_total": 5.091797828674316,
+  "landmarks": 1.7694051265716553,
+  "heads": 0.000982522964477539,
+  "whisper": 0.4933328628540039,
+  "scam_rules": 0.0003409385681152344,
+  "fusion": 0.08518314361572266,
+  "evidence": 0.004985809326171875,
+  "total (excl. model load)": 7.446287155151367
+ },
+ "low_confidence": {
+  "visual": false,
+  "audio": false
+ },
+ "head_meta": {
+  "visual": {
+   "val_auc": 0.899453125,
+   "low_confidence": false,
+   "fusion_weight": 1.0
+  },
+  "audio": {
+   "val_auc": 1.0,
+   "low_confidence": false,
+   "layer": 6,
+   "fusion_weight": 1.0
+  },
+  "note": "val only, small subset, indicative"
+ },
+ "weights": {
+  "visual": 1.0,
+  "audio": 1.0
+ },
+ "crop_thumbs_available": 12,
+ "face_backend": "mediapipe"
+}
