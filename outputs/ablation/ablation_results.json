@@ -1,0 +1,81 @@
+{
+  "n_val": 160,
+  "n_train": 640,
+  "metrics": {
+    "Existing baseline": {
+      "auc": 0.899453125,
+      "precision": 0.7666666666666667,
+      "recall": 0.8625,
+      "f1": 0.8117647058823529
+    },
+    "control (visual score only, re-calibrated)": {
+      "auc": 0.899453125,
+      "precision": 0.88,
+      "recall": 0.825,
+      "f1": 0.8516129032258064
+    },
+    "+ Acoustic": {
+      "auc": 0.887109375,
+      "precision": 0.8533333333333334,
+      "recall": 0.8,
+      "f1": 0.8258064516129032
+    },
+    "+ Facial temporal": {
+      "auc": 0.918984375,
+      "precision": 0.8985507246376812,
+      "recall": 0.775,
+      "f1": 0.8322147651006712
+    },
+    "+ Both": {
+      "auc": 0.911171875,
+      "precision": 0.8441558441558441,
+      "recall": 0.8125,
+      "f1": 0.8280254777070064
+    }
+  },
+  "stage2": {
+    "control (visual score only, re-calibrated)": {
+      "C": 0.003,
+      "train_grouped_cv_auc": 0.78828125,
+      "n_features": 0,
+      "dropped_all_nan_cols": []
+    },
+    "+ Acoustic": {
+      "C": 0.3,
+      "train_grouped_cv_auc": 0.805693359375,
+      "n_features": 37,
+      "dropped_all_nan_cols": []
+    },
+    "+ Facial temporal": {
+      "C": 0.1,
+      "train_grouped_cv_auc": 0.83755859375,
+      "n_features": 14,
+      "dropped_all_nan_cols": []
+    },
+    "+ Both": {
+      "C": 0.1,
+      "train_grouped_cv_auc": 0.8375488281250001,
+      "n_features": 51,
+      "dropped_all_nan_cols": []
+    }
+  },
+  "delta_auc_vs_baseline_bootstrap95": {
+    "control (visual score only, re-calibrated)": [
+      0.0,
+      0.0
+    ],
+    "+ Acoustic": [
+      -0.049430624598701844,
+      0.02406418912978494
+    ],
+    "+ Facial temporal": [
+      -0.016250572093569067,
+      0.05816525953721071
+    ],
+    "+ Both": [
+      -0.026589182408309427,
+      0.055145007061820676
+    ]
+  },
+  "note": "val-only; threshold 0.5; stage-2 stacker on frozen Xception visual-head score + handcrafted features"
+}

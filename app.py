@@ -25,8 +25,8 @@ FOOTER = ("Scores are heuristic evidence scores, not probabilities. Results depe
 
 STAGE_PROGRESS = [  # (substring in stage name, start fraction, span)
     ("Loading", 0.00, 0.05), ("Ingest", 0.05, 0.02), ("Detecting faces", 0.07, 0.10),
-    ("Xception", 0.17, 0.10), ("Wav2Vec2", 0.27, 0.30), ("Scoring", 0.57, 0.03),
-    ("Transcribing", 0.60, 0.25), ("Fusing", 0.85, 0.05), ("Building", 0.90, 0.07), ("Done", 1.0, 0.0),
+    ("Xception", 0.17, 0.10), ("Wav2Vec2", 0.27, 0.30), ("Facial landmarks", 0.57, 0.04), ("Scoring", 0.61, 0.02),
+    ("Transcribing", 0.63, 0.22), ("Fusing", 0.85, 0.05), ("Building", 0.90, 0.07), ("Done", 1.0, 0.0),
 ]
 
 
@@ -114,7 +114,13 @@ def show_report(rep):
     with c2:
         score_bar("Scam evidence (S)", v["S"])
     with c3:
-        score_bar("AV mismatch (M)", None, "Not implemented in this build")
+        sy = v["sync"]
+        score_bar("AV mismatch (M)", None, "Not fused (supporting sync score shown below)")
+        st.caption("AV sync (supporting): " + (f"correlation {sy['sync_score']:.2f}, lag {sy['best_lag_ms']:.0f} ms, "
+                   f"reliability {sy['reliability']:.2f}, {sy['n_valid_windows']} window(s)" if sy["sync_score"] is not None
+                   else f"N/A - {sy['reason']}"))
+    st.caption(f"Media / deepfake risk: **{v['media_band']}** | Scam risk: **{v['scam_band']}** (reported separately; the banner above is the SPEC fusion) "
+               f"| windows with D >= 0.5: {v['coverage']['n_windows_D_ge_0.5']}/{v['coverage']['n_windows_with_D']}")
     st.caption("* heuristic evidence score out of 100, not a probability.")
 
     st.subheader("Reliability")
@@ -168,12 +174,17 @@ def show_report(rep):
                        "S_visual": score_txt(w["S_visual"]), "R_v": rel_txt(w["R_v"]),
                        "S_audio": score_txt(w["S_audio"]), "R_a": rel_txt(w["R_a"]),
                        "S_scam": score_txt(w["S"]), "R_t": rel_txt(w["R_t"]),
-                       "D": score_txt(w["D"]), "faces": f"{w['n_faces']}/{w['n_frames']}"} for w in rep["windows"]])
+                       "D": score_txt(w["D"]), "faces": f"{w['n_faces']}/{w['n_frames']}",
+                       "sync": ("N/A" if w["sync"]["sync_score"] is None else f"{w['sync']['sync_score']:.2f} @ {w['sync']['best_lag_ms']:.0f}ms"),
+                       "blinks": ("N/A" if not w["face_temporal"]["available"] else int(w["face_temporal"]["features"]["blink_count"])),
+                       "MAR std": ("N/A" if not w["face_temporal"]["available"] else round(w["face_temporal"]["features"]["mar_std"], 3)),
+                       "pitch Hz": ("N/A" if w["acoustic"]["features"].get("pitch_mean") is None else round(w["acoustic"]["features"]["pitch_mean"]))}
+                      for w in rep["windows"]])
 
 
 def main():
     st.title("Deepfake Scam Ad Detector")
-    st.info("**English only.** Analyses videos up to 90 s. No OCR, no URL input, and AV-sync (M) is not implemented in this prototype.")
+    st.info("**English only.** Analyses videos up to 90 s. No OCR, no URL input. AV sync is shown as supporting evidence only (not fused into the score).")
     up = st.file_uploader("Upload a video ad (mp4 / mov / webm)", type=["mp4", "mov", "webm"])
     if up is not None:
         key = f"{up.name}-{up.size}"

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
@@ -219,7 +218,8 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
-=======
+
+# ---- Project-specific ----
 # dataset (large, linked from DATASET_ROOT) - manifests only are tracked
 dataset/
 
@@ -240,4 +240,9 @@ __pycache__/
 .pytest_cache/
 desktop.ini
 Thumbs.db
->>>>>>> 3da6c40 (Version 1)
+
+# real-world eval inputs/outputs stay local
+data/real_world_eval/*
+!data/real_world_eval/.gitkeep
+outputs/real_world_eval/
+models/face_landmarker.task

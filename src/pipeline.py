@@ -1,4 +1,4 @@
-﻿"""End-to-end analysis of ONE video: run_pipeline(path, progress_callback) -> report dict.
+"""End-to-end analysis of ONE video: run_pipeline(path, progress_callback) -> report dict.
 
 Stages: ingest -> faces -> xception -> audio (wav2vec2) -> heads -> whisper -> scam rules -> fusion ->
 aggregation -> evidence. Every model call is wrapped: failure => N/A + warning, pipeline continues.
@@ -15,7 +15,7 @@ import cv2
 import joblib
 import numpy as np
 
-from . import config, fusion, models, reliability, scam, semantic
+from . import acoustic_features, av_sync, config, face_temporal, fusion, models, reliability, scam, semantic
 from .features import extract_features
 
 THUMB_DIR = config.OUT_DIR / "thumbs"
@@ -123,6 +123,20 @@ def run_pipeline(path, progress_callback=None) -> dict:
     if nw == 0:
         raise RuntimeError("Video has no analysable duration.")
 
+    # ------------------------------------------------ facial landmarks (supporting temporal features + sync)
+    cb("Facial landmarks (temporal features)", 0.0)
+    t = time.time()
+    fseries = None
+    try:
+        fseries = face_temporal.landmark_series(
+            path, max_seconds=config.MAX_VIDEO_S,
+            progress=lambda f: cb("Facial landmarks (temporal features)", f))
+        if fseries.n_multi:
+            warnings.append(f"More than one face in {fseries.n_multi} sampled frames: the largest face was used.")
+    except Exception as e:  # noqa: BLE001
+        warnings.append(f"Facial temporal analysis N/A ({type(e).__name__}: {e}); temporal face features and AV sync unavailable.")
+    timings["landmarks"] = time.time() - t
+
     # ------------------------------------------------ heads
     cb("Scoring visual and audio heads", 0.0)
     t = time.time()
@@ -221,6 +235,7 @@ def run_pipeline(path, progress_callback=None) -> dict:
                   "n_faces": int(W["nfaces"][wi]), "n_frames": int(W["nframes"][wi]),
                   "speech_ratio": None if np.isnan(A["speech"][wi]) else float(A["speech"][wi]),
                   "categories": win_cats[wi]})
+        r.update(_supporting_features(fseries, A, wi, r))
         win_res.append(r)
     rv_vals = [x for x in R_v if x is not None]
     ra_vals = [x for x in R_a if x is not None]
@@ -229,6 +244,15 @@ def run_pipeline(path, progress_callback=None) -> dict:
     R_a_video = float(np.mean(ra_vals)) if ra_vals else None
     R_t_video = float(np.mean(rt_vals)) if rt_vals else None
     vid = fusion.aggregate_video(win_res, R_v_video, R_a_video, weights)
+    sync_video = av_sync.summarise([w["sync"] for w in win_res])
+    d_vals = [w["D"] for w in win_res if w["D"] is not None]
+    coverage = {"n_windows": nw, "n_windows_with_D": len(d_vals),
+                "n_windows_D_ge_0.5": int(sum(1 for d in d_vals if d >= 0.5)),
+                "D_median": float(np.median(d_vals)) if d_vals else None,
+                "D_max": float(max(d_vals)) if d_vals else None,
+                "n_windows_sync_ok": int(sync_video.get("n_valid_windows", 0)),
+                "n_windows_face_temporal_ok": int(sum(1 for w in win_res if w["face_temporal"]["available"])),
+                "n_windows_acoustic_ok": int(sum(1 for w in win_res if w["acoustic"]["available"]))}
     timings["fusion"] = time.time() - t
 
     # ------------------------------------------------ evidence
@@ -266,7 +290,12 @@ def run_pipeline(path, progress_callback=None) -> dict:
     if vid["R_sum"] < config.R_SUM_CAP and vid["D_video"] is not None:
         panel_warnings.append(f"Total media reliability {vid['R_sum']:.2f} < {config.R_SUM_CAP}: deepfake score capped at "
                               f"{config.CAP_VALUE}, so media evidence alone cannot produce HIGH.")
-    panel_warnings.append("AV mismatch (M) is not implemented in this build: N/A.")
+    panel_warnings.append("AV mismatch (M) is not fused: the lightweight sync score below is supporting evidence only "
+                          "(dubbed / voice-over content can legitimately be out of sync).")
+    if sync_video["status"] != "ok":
+        panel_warnings.append(f"AV sync N/A: {sync_video['reason']}")
+    if coverage["n_windows_face_temporal_ok"] == 0:
+        panel_warnings.append("Facial temporal features N/A in every window (no usable landmarks).")
     panel_warnings.append("English only: other languages are not analysed reliably.")
 
     timings["total (excl. model load)"] = time.time() - T0 - timings["model_load (once per process)"]
@@ -274,7 +303,10 @@ def run_pipeline(path, progress_callback=None) -> dict:
     return {
         "path": str(path), "sha1": _file_hash(path), "meta": meta,
         "video": {**vid, "R_v": R_v_video, "R_a": R_a_video, "R_t": R_t_video,
-                  "M": None, "D": vid["D_video"], "S": vid["S_video"], "R": vid["R_video"]},
+                  "M": None, "D": vid["D_video"], "S": vid["S_video"], "R": vid["R_video"],
+                  "media_band": fusion.band(vid["D_video"]) if vid["D_video"] is not None else "N/A",
+                  "scam_band": fusion.band(vid["S_video"]) if vid["S_video"] is not None else "N/A",
+                  "sync": sync_video, "coverage": coverage},
         "windows": win_res, "evidence": evidence, "checklist": checklist,
         "suppressed_matches": suppressed,
         "transcript": [{"start": s["start"], "end": s["end"], "text": s["text"], "conf": s["conf"],
@@ -361,3 +393,36 @@ def _build_evidence(path, W, C, crop_p, best_crop, win_res, segments, rules, low
                     "thumbnail_path": thumb_path, "reason": reason, "rank_value": float(r["score"] * r["reliability"])})
     return out
 
+
+
+def _supporting_features(fseries, A, wi, r) -> dict:
+    """Per-window supporting evidence (not fused): facial temporal stats, handcrafted acoustic stats, AV sync.
+    Each is N/A with a reason when unavailable; never raises."""
+    ws, we = r["start"], r["end"]
+    try:
+        ft_w = face_temporal.window_stats(fseries, ws, we)
+    except Exception as e:  # noqa: BLE001
+        ft_w = {"features": {}, "available": False, "reason": f"facial temporal failed ({type(e).__name__})",
+                "n_valid": 0, "n_frames": 0, "valid_frac": 0.0}
+    wave = A["wave"]
+    sr = config.SAMPLE_RATE
+    ac = None
+    if wave is not None and bool(A["valid"][wi]):
+        try:
+            ac = acoustic_features.compute(wave[int(ws * sr): int(we * sr)])
+        except Exception as e:  # noqa: BLE001
+            ac = {"features": {k: float("nan") for k in acoustic_features.FEATURE_NAMES}, "available": False,
+                  "reason": f"acoustic features failed ({type(e).__name__})"}
+    if ac is None:
+        ac = {"features": {k: float("nan") for k in acoustic_features.FEATURE_NAMES}, "available": False,
+              "reason": "no usable audio in this window"}
+    sync_w = av_sync.sync_window(fseries, wave, ws, we, r["speech_ratio"], r["R_a"])
+    return {"face_temporal": _nan_to_none(ft_w), "acoustic": _nan_to_none(ac), "sync": sync_w}
+
+
+def _nan_to_none(obj):
+    if isinstance(obj, dict):
+        return {k: _nan_to_none(v) for k, v in obj.items()}
+    if isinstance(obj, float) and not np.isfinite(obj):
+        return None
+    return obj

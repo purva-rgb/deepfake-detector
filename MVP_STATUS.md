@@ -108,3 +108,20 @@ Like-for-like: the new heads on the ORIGINAL 32 val clips give visual AUC 0.926 
 Visual grouped OOF AUC on train 0.743 -> 0.790. Visual improved on every measured metric except recall; audio was already saturated, so no change is measurable.
 Caveats unchanged: C and layer are picked on val (optimistic); the audio 1.000 is dataset-specific; the visual head still scores 9/80 real val clips HIGH and 25 MEDIUM.
 `models/*.pkl` and `models/head_meta.json` now hold the 800-clip heads used by the pipeline, CLI and app. Tests: 25 passed.
+
+## Real-world robustness upgrade (supporting features)
+
+Added, without retraining or overwriting any head (`models/*.pkl`, `head_meta.json`, `outputs/metrics*.json`, `models/backup_160/` untouched):
+
+- `src/acoustic_features.py` - 36 handcrafted per-window acoustic features (MFCC mean/std, RMS, ZCR, spectral centroid/bandwidth/rolloff, pitch mean/std, speech/silence ratio). NaN/N/A when unavailable; pitch is never fabricated.
+- `src/face_temporal.py` - MediaPipe FaceLandmarker (extra ~4 MB `models/face_landmarker.task`, downloaded on first use, git-ignored) giving MAR/EAR/blink/head-pose statistics per window; N/A with too few valid frames.
+- `src/av_sync.py` - lightweight MAR-vs-RMS cross-correlation sync (no neural model). **Supporting evidence only, NOT fused** (M stays None).
+- `src/pipeline.py` / CLI / `app.py` expose per-window features, sync, coverage, and separate media/scam bands. Fusion and reliability formulas are unchanged.
+- `scripts/eval_real_world.py` evaluates arbitrary local mp4/mov/webm (`data/real_world_eval/` or explicit paths) -> `outputs/real_world_eval/results.{csv,json}`.
+- `scripts/check_sync_separation.py` diagnostic (30 clips x 4 categories of dev_800, seed 0).
+
+Measured sync separation (diagnostic only): AUC RVRA vs all other categories = 0.512 (RVRA vs RVFA 0.599, vs FVRA 0.493, vs FVFA 0.444), i.e. **no usable separation on this data**, which is why sync is not fused.
+
+Tests: `python -m pytest tests -q` -> 48 passed.
+
+Known limitations: autocorrelation pitch can have octave errors; blink counts are noisy under head motion; no truly self-recorded video was run (only synthetic TTS-over-face videos, labelled synthetic in `data/real_world_eval/`).
