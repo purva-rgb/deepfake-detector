@@ -184,7 +184,6 @@ def show_report(rep):
 
 def main():
     st.title("Deepfake Scam Ad Detector")
-    st.info("**English only.** Analyses videos up to 90 s. No OCR, no URL input. AV sync is shown as supporting evidence only (not fused into the score).")
     up = st.file_uploader("Upload a video ad (mp4 / mov / webm)", type=["mp4", "mov", "webm"])
     if up is not None:
         key = f"{up.name}-{up.size}"
