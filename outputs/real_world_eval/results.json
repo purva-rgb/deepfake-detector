@@ -1,0 +1,266 @@
+{
+  "synthetic_tts_benign.mp4": {
+    "summary": {
+      "file": "synthetic_tts_benign.mp4",
+      "duration_s": 15.3,
+      "windows": 6,
+      "final_band": "LOW",
+      "final_score": 0.34018726848837405,
+      "media_deepfake_D": 0.34018726848837405,
+      "media_band": "LOW",
+      "visual_score": 0.0874851904809475,
+      "audio_score": 0.6159512314797545,
+      "scam_S": 0.0,
+      "scam_band": "LOW",
+      "scam_categories": "",
+      "sync_score": 0.18496917623783116,
+      "sync_lag_ms": 10.0,
+      "sync_status": "ok",
+      "R_v": 0.9678248418671794,
+      "R_a": 1.0,
+      "R_t": 0.8213693994442902,
+      "D_windows>=0.5": "0/6",
+      "evidence": "[audio] 0:10-0:14 Voice at 0:10-0:14 has characteristics the audio detector associates with cloned or synthetic speech (score 74/100*, audio reliability 100/100). | [audio] 0:00-0:04 Voice at 0:00-0:04 has characteristics the audio detector associates with cloned or synthetic speech (score 72/100*, audio reliability 100/100).",
+      "n_warnings": 2,
+      "seconds": 6.6
+    },
+    "warnings": [
+      "AV mismatch (M) is not fused: the lightweight sync score below is supporting evidence only (dubbed / voice-over content can legitimately be out of sync).",
+      "English only: other languages are not analysed reliably."
+    ],
+    "checklist": [
+      {
+        "label": "Financial promise",
+        "found": false,
+        "matches": []
+      },
+      {
+        "label": "Urgency / pressure",
+        "found": false,
+        "matches": []
+      },
+      {
+        "label": "Authority impersonation",
+        "found": false,
+        "matches": []
+      },
+      {
+        "label": "Payment / credentials (OTP, KYC)",
+        "found": false,
+        "matches": []
+      },
+      {
+        "label": "Off-platform redirect",
+        "found": false,
+        "matches": []
+      },
+      {
+        "label": "Fake branding",
+        "found": false,
+        "matches": []
+      }
+    ],
+    "transcript": [
+      {
+        "t": "0:00-0:04",
+        "text": "Hi everyone, today I want to show you how I organize my study notes.",
+        "conf": 0.8213693994442902
+      },
+      {
+        "t": "0:05-0:08",
+        "text": "First I write the main topics, then I add short summaries.",
+        "conf": 0.8213693994442902
+      },
+      {
+        "t": "0:09-0:13",
+        "text": "Thanks for watching, and please subscribe to the channel.",
+        "conf": 0.8213693994442902
+      }
+    ],
+    "suppressed_by_guard": []
+  },
+  "synthetic_tts_scam.mp4": {
+    "summary": {
+      "file": "synthetic_tts_scam.mp4",
+      "duration_s": 14.6,
+      "windows": 6,
+      "final_band": "HIGH",
+      "final_score": 0.95,
+      "media_deepfake_D": 0.3703256343445171,
+      "media_band": "MEDIUM",
+      "visual_score": 0.0874851904809475,
+      "audio_score": 0.6819857209887935,
+      "scam_S": 0.95,
+      "scam_band": "HIGH",
+      "scam_categories": "Financial promise; Urgency / pressure; Payment / credentials (OTP, KYC); Off-platform redirect",
+      "sync_score": 0.08385785978614137,
+      "sync_lag_ms": 100.0,
+      "sync_status": "ok",
+      "R_v": 0.9678248418671794,
+      "R_a": 1.0,
+      "R_t": 0.7419087531157262,
+      "D_windows>=0.5": "0/6",
+      "evidence": "[audio] 0:00-0:14 Voice at 0:00-0:14 has characteristics the audio detector associates with cloned or synthetic speech (score 75/100*, audio reliability 100/100). | [text] 0:00-0:02 Scam-style language at 0:00-0:02: \"Guaranteed returns\" (Financial promise); transcript confidence 74/100. | [text] 0:06-0:09 Scam-style language at 0:06-0:09: \"Share your OTP\" (Payment / credentials (OTP, KYC)); transcript confidence 74/100. | [text] 0:06-0:09 Scam-style language at 0:06-0:09: \"complete your KYC\" (Payment / credentials (OTP, KYC)); transcript confidence 74/100. | [text] 0:10-0:12 Scam-style language at 0:10-0:12: \"WhatsApp me to claim\" (Off-platform redirect); transcript confidence 74/100.",
+      "n_warnings": 2,
+      "seconds": 6.4
+    },
+    "warnings": [
+      "AV mismatch (M) is not fused: the lightweight sync score below is supporting evidence only (dubbed / voice-over content can legitimately be out of sync).",
+      "English only: other languages are not analysed reliably."
+    ],
+    "checklist": [
+      {
+        "label": "Financial promise",
+        "found": true,
+        "matches": [
+          "Guaranteed returns"
+        ]
+      },
+      {
+        "label": "Urgency / pressure",
+        "found": true,
+        "matches": [
+          "Act now",
+          "limited time"
+        ]
+      },
+      {
+        "label": "Authority impersonation",
+        "found": false,
+        "matches": []
+      },
+      {
+        "label": "Payment / credentials (OTP, KYC)",
+        "found": true,
+        "matches": [
+          "Share your OTP",
+          "complete your KYC"
+        ]
+      },
+      {
+        "label": "Off-platform redirect",
+        "found": true,
+        "matches": [
+          "WhatsApp me to claim"
+        ]
+      },
+      {
+        "label": "Fake branding",
+        "found": false,
+        "matches": []
+      }
+    ],
+    "transcript": [
+      {
+        "t": "0:00-0:02",
+        "text": "Guaranteed returns on every deposit.",
+        "conf": 0.7419087531157262
+      },
+      {
+        "t": "0:02-0:05",
+        "text": "Act now, this is a limited time offer.",
+        "conf": 0.7419087531157262
+      },
+      {
+        "t": "0:06-0:09",
+        "text": "Share your OTP and complete your KYC today.",
+        "conf": 0.7419087531157262
+      },
+      {
+        "t": "0:10-0:12",
+        "text": "WhatsApp me to claim your reward.",
+        "conf": 0.7419087531157262
+      }
+    ],
+    "suppressed_by_guard": []
+  },
+  "synthetic_tts_warning.mp4": {
+    "summary": {
+      "file": "synthetic_tts_warning.mp4",
+      "duration_s": 9.2,
+      "windows": 3,
+      "final_band": "LOW",
+      "final_score": 0.23929538545348827,
+      "media_deepfake_D": 0.23929538545348827,
+      "media_band": "LOW",
+      "visual_score": 0.06144898012280464,
+      "audio_score": 0.4119940151423292,
+      "scam_S": 0.0,
+      "scam_band": "LOW",
+      "scam_categories": "",
+      "sync_score": 0.10290619790361645,
+      "sync_lag_ms": 40.0,
+      "sync_status": "ok",
+      "R_v": 0.9715610315773593,
+      "R_a": 1.0,
+      "R_t": 0.7064117107491258,
+      "D_windows>=0.5": "0/3",
+      "evidence": "[audio] 0:00-0:04 Voice at 0:00-0:04 has characteristics the audio detector associates with cloned or synthetic speech (score 61/100*, audio reliability 100/100).",
+      "n_warnings": 2,
+      "seconds": 5.0
+    },
+    "warnings": [
+      "AV mismatch (M) is not fused: the lightweight sync score below is supporting evidence only (dubbed / voice-over content can legitimately be out of sync).",
+      "English only: other languages are not analysed reliably."
+    ],
+    "checklist": [
+      {
+        "label": "Financial promise",
+        "found": false,
+        "matches": []
+      },
+      {
+        "label": "Urgency / pressure",
+        "found": false,
+        "matches": []
+      },
+      {
+        "label": "Authority impersonation",
+        "found": false,
+        "matches": []
+      },
+      {
+        "label": "Payment / credentials (OTP, KYC)",
+        "found": false,
+        "matches": []
+      },
+      {
+        "label": "Off-platform redirect",
+        "found": false,
+        "matches": []
+      },
+      {
+        "label": "Fake branding",
+        "found": false,
+        "matches": []
+      }
+    ],
+    "transcript": [
+      {
+        "t": "0:00-0:02",
+        "text": "Never share your OTP with anyone.",
+        "conf": 0.7064117107491258
+      },
+      {
+        "t": "0:02-0:06",
+        "text": "Beware of collars who ask you to send your card number.",
+        "conf": 0.7064117107491258
+      },
+      {
+        "t": "0:06-0:08",
+        "text": "Do not click on unknown links.",
+        "conf": 0.7064117107491258
+      }
+    ],
+    "suppressed_by_guard": [
+      {
+        "text": "share your OTP",
+        "reason": "negation/warning word 'never' before match"
+      },
+      {
+        "text": "send your card number",
+        "reason": "negation/warning word 'beware' before match"
+      }
+    ]
+  }
+}

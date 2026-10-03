@@ -1,0 +1,21 @@
+torch
+torchvision
+timm
+transformers
+numpy
+scipy==1.17.1
+pandas
+scikit-learn==1.8.0
+joblib
+pyyaml
+python-dotenv
+opencv-python
+pillow
+imageio-ffmpeg
+faster-whisper
+streamlit
+matplotlib
+# optional (fallbacks exist: haarcascade face detector, energy-based VAD)
+mediapipe
+webrtcvad-wheels
+av==17.1.0

@@ -1,0 +1,168 @@
+﻿# Scam rule engine data (English only in this build). SPEC section 6a.
+# Matching is done per sentence with re.IGNORECASE. A hit is SUPPRESSED when a negation/warning
+# word appears within `guard.window_tokens` tokens BEFORE the match start in the same sentence,
+# or when a rule-level `suppress_if` regex matches the sentence.
+# S_scam = min(1, S_max + 0.10 * (N_categories - 1)).
+
+guard:
+  window_tokens: 8
+  # tested against the (lower-cased) tokens that precede the match inside the same sentence
+  negation_regex: "\\b(never|not|no one|nobody|beware|avoid|warning|careful|caution|\\w+n't|dont|stay away from|protect yourself|scam alert|fraud alert)\\b"
+
+categories:
+  financial_promise: "Financial promise"
+  urgency: "Urgency / pressure"
+  authority_impersonation: "Authority impersonation"
+  payment_credentials: "Payment / credentials (OTP, KYC)"
+  off_platform_redirect: "Off-platform redirect"
+  fake_branding: "Fake branding"
+
+rules:
+  # ---------------------------------------------------------------- 1. financial promise
+  - id: fin_guaranteed
+    category: financial_promise
+    language: en
+    strength: 0.85
+    patterns:
+      - "\\bguaranteed (returns?|profits?|income|earnings?|payouts?)\\b"
+      - "\\b(100|hundred) ?(%|percent) (guaranteed|profit|returns?|safe|sure)\\b"
+      - "\\brisk[- ]?free (investment|returns?|profits?|income)\\b"
+      - "\\b(double|triple|10x|ten times) your (money|investment|income|savings)\\b"
+  - id: fin_earnings
+    category: financial_promise
+    language: en
+    strength: 0.75
+    patterns:
+      - "\\b(earn|make|get) (up to |upto )?(\\$|rs\\.? ?|rupees |inr )?\\d[\\d,]*(k| lakh| thousand| million)? ?(dollars|rupees)? ?(per|a|every|each) (day|week|month|hour)\\b"
+      - "\\b(get rich quick|become a millionaire|financial freedom in \\d+ (days|weeks|months))\\b"
+      - "\\bwin (a |an )?(free )?(iphone|car|cash|gift card|prize|lottery)\\b"
+      - "\\byou (have )?(won|been selected for) (a |an |the )?(lottery|lucky draw|prize|iphone|car|gift|reward|cash)\\b"
+  - id: fin_effortless
+    category: financial_promise
+    language: en
+    strength: 0.55
+    patterns:
+      - "\\bno (experience|investment|skills?|risk) (needed|required|necessary)\\b"
+      - "\\bpassive income (while you sleep|from home|guaranteed)\\b"
+      - "\\bwork from home and (earn|make)\\b"
+
+  # ---------------------------------------------------------------- 2. urgency
+  - id: urg_action
+    category: urgency
+    language: en
+    strength: 0.55
+    patterns:
+      - "\\b(act|hurry|apply|buy|order|call|click|register|invest|claim) (now|fast|immediately|today|right away)\\b"
+      - "\\b(don't|do not|dont) (miss|wait|delay|lose)\\b"
+      - "\\b(limited|last) (time|chance|offer|seats?|slots?|stock|opportunity)\\b"
+      - "\\blast (day|hours?) (of|to) (the )?(offer|sale|deal|apply|register)\\b"
+  - id: urg_countdown
+    category: urgency
+    language: en
+    strength: 0.6
+    patterns:
+      - "\\bonly \\d+ (left|remaining|spots?|slots?|seats?|pieces?)\\b"
+      - "\\b(offer|deal|account|card|number)( will| is going to)? (expires?|ends?|closes?|be (blocked|suspended|deactivated))( (in|today|tonight|soon|within))?\\b"
+      - "\\b(within|in) (the next )?\\d+ (minutes?|mins?|hours?)\\b"
+      - "\\burgent(ly)? (action|attention|response|notice|message|verification)\\b"
+
+  # ---------------------------------------------------------------- 3. authority impersonation
+  - id: auth_official
+    category: authority_impersonation
+    language: en
+    strength: 0.75
+    patterns:
+      - "\\b(i am|i'm|this is|we are|calling from) (the |an? )?(officer|inspector|agent|manager|representative|official|executive)\\b.{0,40}\\b(bank|police|cbi|rbi|income tax|customs|government|court|sebi|irs|fbi|amazon|microsoft|apple)\\b"
+      - "\\b(reserve bank of india|rbi|sebi|income tax department|cyber ?crime( cell| police)?|cbi|enforcement directorate|customs department|irs|fbi|interpol)\\b.{0,40}\\b(notice|warrant|case|arrest|investigation|verification|order|penalty)\\b"
+      - "\\b(your|the) (bank|account|card) (manager|officer|executive)\\b"
+      - "\\b(arrest warrant|legal action will be taken|you will be arrested|case (has been|will be) (filed|registered))\\b"
+  - id: auth_endorse
+    category: authority_impersonation
+    language: en
+    strength: 0.7
+    patterns:
+      - "\\b(endorsed|recommended|approved|backed|promoted) by (elon musk|mukesh ambani|ratan tata|warren buffett|narendra modi|bill gates|shark tank)\\b"
+      - "\\b(sebi|rbi|government|govt\\.?)[- ]?(registered|approved|certified|recognized|authori[sz]ed|backed)\\b"
+      - "\\bofficial(ly)? (government|govt\\.?|bank) (scheme|subsidy|program|scholarship|refund)\\b"
+
+  # ---------------------------------------------------------------- 4. payment / credentials
+  - id: pay_credentials
+    category: payment_credentials
+    language: en
+    strength: 0.85
+    patterns:
+      - "\\b(share|send|give|tell|provide|enter|read out|confirm|submit) (me |us )?(your |the |ur )?(otp|one[- ]time (password|pin|code)|cvv|pin|password|passcode|card number|card details|bank details|account number|upi pin|aadhaar|aadhar|pan (card|number)|net ?banking)\\b"
+  - id: pay_kyc
+    category: payment_credentials
+    language: en
+    strength: 0.8
+    patterns:
+      - "\\b(complete|update|verify|do|finish|renew) (your |the )?(e-?kyc|kyc)\\b"
+      - "\\bkyc (update|verification|expired|pending|is incomplete|will be (blocked|suspended))\\b"
+  - id: pay_fee
+    category: payment_credentials
+    language: en
+    strength: 0.8
+    patterns:
+      - "\\b(pay|deposit|send|transfer) (a |an |the )?(small |nominal |one[- ]time )?(registration|processing|joining|security|activation|refundable|clearance|handling) (fee|charge|charges|deposit|amount)\\b"
+      - "\\b(send|transfer|pay|deposit) (the )?(money|funds|payment|amount)? ?(to|via|through|on) (this|my|our|the following) (upi|account|wallet|number|qr|bitcoin|crypto|gpay|google pay|phonepe|paytm)\\b"
+      - "\\bpay (with|in|using|via) (gift cards?|bitcoin|crypto(currency)?|western union)\\b"
+      - "\\bscan (this|the) qr code to (receive|get|claim|pay)\\b"
+  - id: pay_login
+    category: payment_credentials
+    language: en
+    strength: 0.7
+    patterns:
+      - "\\b(log ?in|sign in|click (on )?(the |this )?link)\\b.{0,25}\\b(verify|confirm|update) (your )?(account|password|details|identity)\\b"
+      - "\\bclick (on )?(the |this )?link (below |above )?to (claim|verify|confirm|update|pay)\\b"
+
+  # ---------------------------------------------------------------- 5. off-platform redirect
+  - id: redir_join
+    category: off_platform_redirect
+    language: en
+    strength: 0.55
+    suppress_if: ["\\b(customer )?(support|helpline|help ?desk|help centre|help center|customer care|official (website|support))\\b"]
+    patterns:
+      - "\\b(join|add) (our|my|the) (private |vip |premium |exclusive )?(telegram|whatsapp|signal|discord)( group| channel| community)?\\b"
+      - "\\b(move|switch|continue|talk|chat) (to|on) (whatsapp|telegram|signal|another app|private chat)\\b"
+      - "\\b(click|tap|use) (the )?link (in|on) (my |our |the )?(bio|description|comments|profile)\\b"
+  - id: redir_contact
+    category: off_platform_redirect
+    language: en
+    strength: 0.7
+    suppress_if: ["\\b(customer )?(support|helpline|help ?desk|help centre|help center|customer care|official (website|support))\\b"]
+    patterns:
+      - "\\b(whatsapp|telegram|dm|message|text|contact|msg) (me|us)\\b.{0,30}\\b(to (claim|get|invest|earn|win|start|join|receive|activate|register)|for (investment|trading|profit|tips|signals|a free|free|your prize|your reward|the offer))\\b"
+      - "\\b(whatsapp|telegram|call|text)\\b.{0,15}\\b(\\+?\\d[\\d ]{8,13}\\d)\\b"
+      - "\\b(download|install) (this|the|our) (app|apk)\\b.{0,30}\\b(from (the )?link|to (claim|earn|win|get|invest))\\b"
+  - id: redir_shortlink
+    category: off_platform_redirect
+    language: en
+    strength: 0.6
+    patterns:
+      - "\\b(t\\.me|wa\\.me|bit\\.ly|tinyurl\\.com)/\\S*"
+
+  # ---------------------------------------------------------------- 6. fake branding
+  - id: brand_spoof
+    category: fake_branding
+    language: en
+    strength: 0.6
+    patterns:
+      - "\\b(amazon|flipkart|paytm|phonepe|google|microsoft|apple|netflix|sbi|hdfc|icici|axis bank|zerodha|groww|upstox|binance|reliance|jio|airtel|whatsapp|facebook|instagram) (official|rewards?|lucky draw|giveaway|lottery|cashback offer|helpdesk|support team|care team)\\b"
+      - "\\b(in )?(partnership|association|collaboration) with (amazon|google|microsoft|apple|tesla|reliance|tata|sbi|hdfc|icici|binance|meta|openai)\\b"
+      - "\\b(official|authori[sz]ed|certified) (dealer|distributor|partner|reseller|broker) (of|for) \\w+"
+  - id: brand_notice
+    category: fake_branding
+    language: en
+    strength: 0.7
+    patterns:
+      - "\\b(your )?(amazon|flipkart|paytm|google|apple|netflix) (account|order|parcel|package|delivery|subscription) (has been|is|was|will be) (suspended|blocked|locked|cancelled|on hold|expired|compromised)\\b"
+      - "\\b(lucky draw|lottery) (winner|prize|ticket|number)\\b"
+  - id: brand_claims
+    category: fake_branding
+    language: en
+    strength: 0.5
+    patterns:
+      - "\\b(as seen on|featured (on|in)) (tv|cnn|bbc|forbes|shark tank|times of india|economic times|ndtv|bloomberg)\\b"
+      - "\\b(trusted|number one|no\\.? ?1|best|top) (brand|platform|company|broker|trading platform|investment platform)\\b.{0,40}\\b(guaranteed|returns|profit|earn)\\b"
+

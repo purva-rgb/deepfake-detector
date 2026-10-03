@@ -1,0 +1,63 @@
+{
+  "visual": {
+    "n_clips": 32,
+    "n_pos": 16,
+    "auc": 0.72265625,
+    "precision": 0.6,
+    "recall": 0.9375,
+    "f1": 0.7317073170731707,
+    "per_category_auc": {
+      "FakeVideo-FakeAudio": 0.7421875,
+      "FakeVideo-RealAudio": 0.703125,
+      "RealVideo-FakeAudio": 0.734375,
+      "RealVideo-RealAudio": 0.7109375
+    },
+    "C": 0.3,
+    "note": "val only, small subset, indicative",
+    "real_val_clips_by_band": {
+      "LOW": 6,
+      "MEDIUM": 3,
+      "HIGH": 7
+    },
+    "low_confidence": false,
+    "train_grouped_oof_clip_auc": 0.74267578125,
+    "real_train_oof_clips_by_band": {
+      "LOW": 28,
+      "MEDIUM": 8,
+      "HIGH": 28
+    }
+  },
+  "audio": {
+    "n_clips": 32,
+    "n_pos": 16,
+    "auc": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "per_category_auc": {
+      "FakeVideo-FakeAudio": 1.0,
+      "FakeVideo-RealAudio": 1.0,
+      "RealVideo-FakeAudio": 1.0,
+      "RealVideo-RealAudio": 1.0
+    },
+    "layer": 6,
+    "C": 0.03,
+    "note": "val only, small subset, indicative",
+    "real_val_clips_by_band": {
+      "LOW": 15,
+      "MEDIUM": 1,
+      "HIGH": 0
+    },
+    "low_confidence": false,
+    "train_grouped_oof_clip_auc": 1.0,
+    "real_train_oof_clips_by_band": {
+      "LOW": 61,
+      "MEDIUM": 3,
+      "HIGH": 0
+    }
+  },
+  "shortcut_check_val_auc": {
+    "video_label": 0.703125,
+    "audio_label": 0.83203125
+  }
+}

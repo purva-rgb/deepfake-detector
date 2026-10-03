@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
@@ -218,3 +219,25 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+=======
+# dataset (large, linked from DATASET_ROOT) - manifests only are tracked
+dataset/
+
+# local config (machine-specific paths); see .env.example
+.env
+
+# regenerable artifacts
+outputs/embeddings/
+outputs/thumbs/
+logs/
+outputs/logs/
+# auto-downloaded on first run
+models/blaze_face_short_range.tflite
+
+# python / OS
+__pycache__/
+*.pyc
+.pytest_cache/
+desktop.ini
+Thumbs.db
+>>>>>>> 3da6c40 (Version 1)

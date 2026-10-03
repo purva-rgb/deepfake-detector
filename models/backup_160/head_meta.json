@@ -1,0 +1,14 @@
+{
+  "visual": {
+    "val_auc": 0.72265625,
+    "low_confidence": false,
+    "fusion_weight": 1.0
+  },
+  "audio": {
+    "val_auc": 1.0,
+    "low_confidence": false,
+    "layer": 6,
+    "fusion_weight": 1.0
+  },
+  "note": "val only, small subset, indicative"
+}
