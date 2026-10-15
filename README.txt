@@ -1,4 +1,4 @@
-
+A prototype made by us specifically under the Problem Statement "Build a DeepFake Scam Ad Detector".
 We used 4 different deepfake generation and voice synthesis methods to generate our FakeAVCeleb. 
 To generate deepfake videos, we used recent most popular methods: Faceswap, FSGAN, and Wav2Lip. 
 For generating cloned audio, we used a tool called Real time voice cloning (SV2TTS). 
