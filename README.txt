@@ -9,21 +9,21 @@ Wav2Lip: https://github.com/Rudrabha/Wav2Lip
 RTVC (SV2TTS): https://github.com/CorentinJ/Real-Time-Voice-Cloning
 
 
-The directory structure is divided into four parent directories/categories:
+The directory structure is divided into four parent directories/categories :
 
 A > RealVideo-RealAudio  (Real Voxceleb videos)
 B > RealVideo-FakeAudio  (Deepfake)
 C > FakeVideo-RealAudio  (Deepfake)
 D > FakeVideo-FakeAudio  (Deepfake)
 
-A metadata dile is also provided with the dataset which contains following labels:
+A metadata dile is also provided with the dataset which contains following labels :
 
-Label:		Description:						Example:
+Label:		Description:					      	Example:
 source		Source video file id				id00166
 target1		Target 1 video file id				id01637
-target2		Target 2 video file id				-
+target2		Target 2 video file id			     	-
 method		Method used to generate deepfake	faceswap
-category	Deepfake category					C
+category	Deepfake category				         	C
 type		Description of category				FakeVideo-RealAudio
 gender		Gender of the person in video		Black
 race		Race of the person in video			men
